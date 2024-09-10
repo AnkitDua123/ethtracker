@@ -25,8 +25,8 @@ public class DepositController {
     }
 
     @PostMapping("/webhook")
-    public ResponseEntity<String> handleWebhook() {
-        System.out.println("Received webhook data: ");
+    public ResponseEntity<String> handleWebhook(@RequestBody String eventData) {
+        System.out.println("Received webhook data: " + eventData);
 
         return ResponseEntity.ok("Webhook received");
     }
