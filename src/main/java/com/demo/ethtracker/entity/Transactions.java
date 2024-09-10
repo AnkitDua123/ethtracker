@@ -1,6 +1,6 @@
 package com.demo.ethtracker.entity;
+
 import java.math.BigInteger;
-import java.time.Instant;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,23 +16,19 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Deposit {
+public class Transactions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String transactionHash;
+    private String blockHash;
     private BigInteger blockNumber;
-    private Instant blockTimestamp; // or use Long if you prefer Unix timestamp
-    private BigInteger fee;
-    private String hash;
-    private String pubkey;
-
-    public Deposit(BigInteger blockNumber, Instant blockTimestamp, BigInteger fee, String hash, String pubKey){
-        this.blockNumber = blockNumber;
-        this.blockTimestamp = blockTimestamp;
-        this.fee = fee;
-        this.hash = hash;
-        this.pubkey = pubKey;
-    }
-
+    private String fromAddress;
+    private String toAddress;
+    private BigInteger value;
+    private BigInteger gas;
+    private BigInteger gasPrice;
+    private BigInteger nonce;
+    private String inputData;
 }
